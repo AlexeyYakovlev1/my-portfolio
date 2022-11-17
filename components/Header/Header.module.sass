@@ -1,0 +1,27 @@
+@import "../../styles/_vars"
+
+.wrapper
+	position: sticky
+	top: 0
+	background-color: rgba($colorLightBlack,.6)
+	backdrop-filter: blur(4px)
+	z-index: 9
+
+.list
+	display: flex
+	flex-wrap: wrap
+	gap: 0 35px
+	& li
+		color: $colorLightGray
+		max-width: 150px
+		& a
+			display: block
+			padding: 20px 0
+			border-bottom: 1px solid transparent
+			&:hover
+				color: $colorWhite
+				border-color: $colorWhite
+		&.active
+			& a
+				border-color: $colorGreen
+				color: $colorWhite

@@ -1,0 +1,42 @@
+@import "../../styles/_vars.sass"
+
+.technology
+	margin-top: 50px
+	display: grid
+	grid-template-rows: auto 1fr
+	gap: 25px
+	color: $colorWhite
+	font-family: $fontMontserrat
+	background-image: linear-gradient(45deg, $colorPurple, $colorGreen)
+	padding: 20px 0
+
+.title
+	font-weight: 400
+	font-size: 25px
+
+.list
+	display: grid
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
+	gap: 20px
+	& li
+		background-color: $colorLightBlack
+		padding: 15px
+		border-radius: 10px
+		display: flex
+		flex-direction: column
+		gap: 20px
+		& header
+			display: grid
+			grid-template-rows: 64px auto
+			gap: 10px
+		& h3
+			font-weight: 600
+		& a
+			color: $colorGreen
+			text-decoration: underline
+			transition: color .2s ease
+			margin-top: auto
+			&:hover
+				color: $colorPurple
+		& p
+			line-height: 25px
