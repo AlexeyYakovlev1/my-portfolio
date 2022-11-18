@@ -4,19 +4,21 @@ import Link from "next/link";
 import classes from "./Welcome.module.sass";
 import Image from "next/image";
 import Button from "../UI/Button/Button";
+import Description from "../UI/Description/Description";
+import Title from "../UI/Title/Title";
 
 function Welcome() {
 	return (
 		<article className={classes.wrapper}>
 			<header className={classes.header}>
-				<h1 className={classes.title}>
+				<Title type="H1" className={classes.title}>
 					Алексей Яковлев
-				</h1>
-				<p className={classes.description}>
+				</Title>
+				<Description type="MIDDLE">
 					Front-end разработчик.
 					Занимаюсь внешней, клиентской частью сайтов и веб-приложений.
 					Отвечаю за корректную работу элементов интерфейса.
-				</p>
+				</Description>
 			</header>
 			<div className={classes.actions}>
 				<Button className={classes.button}>

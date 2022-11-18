@@ -22,7 +22,7 @@ function MainLayout({ children, title = "Портфолио - Алексей Я�
 			</Head>
 			<div className={classes.wrapper}>
 				<Header />
-				<main>{children}</main>
+				<main className={classes.body}>{children}</main>
 				<Footer />
 			</div>
 		</React.Fragment>

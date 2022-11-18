@@ -27,7 +27,6 @@
 		"react/react-in-jsx-scope": "off",
 		"@typescript-eslint/ban-types": "off",
 		"no-debugger": "off",
-		"indent": [2, "tab"],
 		"linebreak-style": "off",
 		"quotes": [
 			"error",

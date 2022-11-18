@@ -1,0 +1,35 @@
+@import "../../styles/_vars.sass"
+
+.filters
+	background-color: $colorLightBlack
+	display: grid
+	grid-template-rows: auto 1fr
+	gap: 20px
+	padding: 20px
+	border-radius: 20px
+	& h2, h3
+		color: $colorWhite
+	& label
+		color: $colorLightGray
+	&Item
+		display: grid
+		grid-template-rows: auto 1fr
+		gap: 15px
+		&Content
+			max-height: 150px
+			overflow-y: auto
+			display: flex
+			flex-direction: column
+			gap: 10px 0
+			& li
+				display: flex
+				justify-content: space-between
+				align-items: center
+				user-select: none
+
+.form
+	max-height: 600px
+	overflow-y: auto
+	display: flex
+	flex-direction: column
+	gap: 20px

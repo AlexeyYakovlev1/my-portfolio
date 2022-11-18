@@ -1,0 +1,46 @@
+@import "../../styles/_vars.sass"
+
+.wrapper
+	display: grid
+	grid-template-rows: auto 1fr
+	gap: 50px
+	margin-top: 50px
+	position: relative
+
+.header
+	display: grid
+	grid-template-rows: auto 1fr
+	gap: 20px
+	color: $colorWhite
+
+.projects
+	display: grid
+	grid-template-columns: auto minmax(300px, 1fr)
+	justify-content: space-between
+	align-items: flex-start
+	gap: 50px
+
+.list
+	display: grid
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
+	gap: 20px
+	&Item
+		color: $colorWhite
+		display: grid
+		grid-template-rows: auto 1fr auto
+		gap: 20px
+		&Header
+			display: grid
+			grid-template-rows: 200px auto
+			gap: 10px
+		&Footer
+			display: grid
+			grid-template-rows: 1fr auto
+			gap: 30px
+		&Link
+			transition: color .2s ease
+			&:hover
+				color: $colorGreen !important
+				text-decoration: underline
+			&:not(:first-child)
+				color: $colorPurple
