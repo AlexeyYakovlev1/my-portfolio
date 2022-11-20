@@ -10,8 +10,11 @@ import { IProject, projects } from "../../data";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "../../components/UI/Button/Button";
+import React from "react";
 
 const ProjectsPage = (): JSX.Element => {
+	const [openFilts, setOpenFilts] = React.useState<boolean>(false);
+
 	return (
 		<MainLayout title="Проекты Алексея Яковлева">
 			<article className={cn(classes.wrapper, "container")}>
@@ -21,6 +24,14 @@ const ProjectsPage = (): JSX.Element => {
 						Здесь Вы увидите несколько проектов, над которыми я
 						работал или работаю до сих пор.
 					</Description>
+					<div className={classes.filtersMobile}>
+						<Button
+							onClick={() => setOpenFilts(!openFilts)}
+						>
+							{!openFilts ? "Открыть фильры" : "Закрыть фильтры"}
+						</Button>
+						{openFilts && <Filters />}
+					</div>
 				</header>
 				<section className={classes.projects}>
 					<ul className={classes.list}>
@@ -28,10 +39,10 @@ const ProjectsPage = (): JSX.Element => {
 							return (
 								<li key={project.link} className={classes.listItem}>
 									<header className={classes.listItemHeader}>
-										<Image
-											src={project.images[0]}
-											alt={project.name}
-										/>
+										<div
+											style={{ backgroundImage: `url(${project.images[0]})` }}
+											className={classes.listItemPhoto}
+										></div>
 										<Title
 											className={classes.listItemTitle}
 											type="H2"
@@ -70,11 +81,11 @@ const ProjectsPage = (): JSX.Element => {
 							);
 						})}
 					</ul>
-					<Filters />
+					<Filters className={classes.filters} />
 				</section>
 			</article>
 		</MainLayout>
 	);
-}
+};
 
 export default ProjectsPage;

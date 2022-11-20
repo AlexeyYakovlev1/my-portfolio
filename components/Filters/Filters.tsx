@@ -1,12 +1,16 @@
 "use client";
 
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 import Button from "../UI/Button/Button";
 import Title from "../UI/Title/Title";
 import classes from "./Filters.module.sass";
+import cn from "classnames";
 
-function Filters() {
+interface IFiltersProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> { }
+
+const Filters = ({ className }: IFiltersProps): JSX.Element => {
 	return (
-		<aside className={classes.filters}>
+		<aside className={cn(classes.filters, className)}>
 			<Title type="H2">Фильтры</Title>
 			<form className={classes.form}>
 				<section className={classes.filtersItem}>
@@ -90,6 +94,6 @@ function Filters() {
 			</form>
 		</aside>
 	);
-}
+};
 
 export default Filters;

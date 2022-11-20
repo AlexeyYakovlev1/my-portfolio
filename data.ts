@@ -128,15 +128,70 @@ export const socialNetworks: Array<ISocialNetwork> = [
 export const projects: Array<IProject> = [
 	{
 		images: [
-			ShareListAuthIcon,
-			ShareListCreatePostIcon,
-			ShareListViewPostIcon,
-			ShareLifePostIcon,
-			ShareLifeChangePost,
-			ShareLifeProfileIcon,
-			ShareLifeSettingsIcon,
-			ShareLifeAdminIcon,
-			ShareLifeAdminChangeIcon
+			"/assets/images/projects/share-life/auth.jpg",
+			"/assets/images/projects/share-life/createPost.jpg"
+		],
+		name: "Share-life",
+		description: "Блог, в котором ты можешь постить свои темы, комментировать посты и подписываться на людей",
+		link: "https://github.com/AlexeyYakovlev1/share-life",
+		technology: [
+			{
+				name: "Typescript",
+				img: TsIcon
+			},
+			{
+				name: "React",
+				img: ReactIcon
+			},
+			{
+				name: "Redux",
+				img: ReduxIcon
+			},
+			{
+				name: "Node.js",
+				img: NodeIcon
+			},
+			{
+				name: "PostgreSQL",
+				img: PostgIcon
+			}
+		]
+	},
+	{
+		images: [
+			"/assets/images/projects/share-life/auth.jpg",
+			"/assets/images/projects/share-life/createPost.jpg"
+		],
+		name: "Share-life",
+		description: "Блог, в котором ты можешь постить свои темы, комментировать посты и подписываться на людей",
+		link: "https://github.com/AlexeyYakovlev1/share-life",
+		technology: [
+			{
+				name: "Typescript",
+				img: TsIcon
+			},
+			{
+				name: "React",
+				img: ReactIcon
+			},
+			{
+				name: "Redux",
+				img: ReduxIcon
+			},
+			{
+				name: "Node.js",
+				img: NodeIcon
+			},
+			{
+				name: "PostgreSQL",
+				img: PostgIcon
+			}
+		]
+	},
+	{
+		images: [
+			"/assets/images/projects/share-life/auth.jpg",
+			"/assets/images/projects/share-life/createPost.jpg"
 		],
 		name: "Share-life",
 		description: "Блог, в котором ты можешь постить свои темы, комментировать посты и подписываться на людей",
