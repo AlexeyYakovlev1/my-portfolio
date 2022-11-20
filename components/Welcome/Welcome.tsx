@@ -7,7 +7,7 @@ import Button from "../UI/Button/Button";
 import Description from "../UI/Description/Description";
 import Title from "../UI/Title/Title";
 
-function Welcome() {
+const Welcome = (): JSX.Element => {
 	return (
 		<article className={classes.wrapper}>
 			<header className={classes.header}>

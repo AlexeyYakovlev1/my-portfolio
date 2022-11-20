@@ -8,7 +8,7 @@ interface IButtonProps extends DetailedHTMLProps<HTMLAttributes<HTMLButtonElemen
 	children: React.ReactNode;
 }
 
-function Button({ children, className, ...props }: IButtonProps) {
+const Button = ({ children, className, ...props }: IButtonProps): JSX.Element => {
 	return (
 		<button
 			className={cn(classes.wrapper, className)}

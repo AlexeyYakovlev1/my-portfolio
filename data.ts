@@ -19,6 +19,10 @@ import ShareLifeSettingsIcon from "./public/assets/images/projects/share-life/se
 import ShareLifeAdminIcon from "./public/assets/images/projects/share-life/admin.jpg";
 import ShareLifeAdminChangeIcon from "./public/assets/images/projects/share-life/adminChange.jpg";
 
+import TelegramIcon from "./public/assets/images/socialNetworks/telegram.svg";
+import GmailIcon from "./public/assets/images/socialNetworks/gmail.svg";
+import VkIcon from "./public/assets/images/socialNetworks/vk.svg";
+
 export interface ITechnology {
 	title: string;
 	link: string;
@@ -32,6 +36,12 @@ export interface IProject {
 	description: string;
 	link: string;
 	technology: Array<{ name: string; img: any }>;
+}
+
+export interface ISocialNetwork {
+	name: string;
+	link: string;
+	img: any;
 }
 
 export const technology: Array<ITechnology> = [
@@ -95,6 +105,24 @@ export const technology: Array<ITechnology> = [
 		description: "Является распределенной системой для управления версиями разрабатываемых файлов. ",
 		img: GitIcon
 	}
+];
+
+export const socialNetworks: Array<ISocialNetwork> = [
+	{
+		name: "Телеграм",
+		link: "https://t.me/quod_42",
+		img: TelegramIcon
+	},
+	{
+		name: "Почта",
+		link: "mailto:alexeyykovlev555@gmail.com",
+		img: GmailIcon
+	},
+	{
+		name: "Вконтакте",
+		link: "https://vk.com/quod_42",
+		img: VkIcon
+	},
 ];
 
 export const projects: Array<IProject> = [

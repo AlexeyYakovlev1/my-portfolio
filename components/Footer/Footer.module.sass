@@ -2,9 +2,14 @@
 
 .wrapper
 	background-color: $colorLightBlack
-	padding: 20px 0
+	padding-top: 20px
 	color: $colorWhite
 	margin-top: 50px
+	display: grid
+	grid-template-rows: 1fr auto
+	gap: 20px
+	& article
+		text-align: center
 
 .text
 	text-align: center
@@ -13,5 +18,35 @@
 		color: $colorGreen
 		text-decoration: underline
 		transition: color .2s ease
+		&:hover
+			color: $colorPurple
+
+.socialNetworks
+	display: flex
+	flex-direction: column
+	gap: 15px
+	& ul
+		display: grid
+		grid-template-columns: repeat(3, 32px)
+		gap: 20px
+		justify-content: center
+		& li
+			user-select: none
+			padding-bottom: 10px
+			border-bottom: 1px solid transparent
+			transition: border-bottom .2s ease
+			&:hover
+				border-color: $colorGreen
+
+.down
+	background-color: $colorGray
+	padding: 10px
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-between
+	& a
+		color: $colorGreen
+		transition: color .2s ease
+		text-decoration: underline
 		&:hover
 			color: $colorPurple

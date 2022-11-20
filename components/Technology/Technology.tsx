@@ -5,12 +5,18 @@ import classes from "./Technology.module.sass";
 import Link from "next/link";
 import Image from "next/image";
 import { ITechnology, technology } from "../../data";
+import Title from "../UI/Title/Title";
 
-function Technology() {
+const Technology = (): JSX.Element => {
 	return (
 		<section className={classes.technology}>
 			<header className="container">
-				<h2 className={classes.title}>Технологии, которые я использую</h2>
+				<Title
+					type="H2"
+					className={classes.title}
+				>
+					Технологии, которые я использую
+				</Title>
 			</header>
 			<div className="container">
 				<ul className={classes.list}>

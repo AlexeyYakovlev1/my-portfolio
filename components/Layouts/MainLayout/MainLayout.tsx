@@ -11,7 +11,7 @@ interface IMainLayoutProps {
 	title?: string;
 }
 
-function MainLayout({ children, title = "Портфолио - Алексей Яковлев" }: IMainLayoutProps) {
+const MainLayout = ({ children, title = "Портфолио - Алексей Яковлев" }: IMainLayoutProps): JSX.Element => {
 	return (
 		<React.Fragment>
 			<Head>

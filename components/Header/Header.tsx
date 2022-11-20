@@ -12,7 +12,7 @@ interface IMenu {
 	img?: any;
 }
 
-function Header() {
+const Header = (): JSX.Element => {
 	const menu: Array<IMenu> = [
 		{
 			text: "Главная",

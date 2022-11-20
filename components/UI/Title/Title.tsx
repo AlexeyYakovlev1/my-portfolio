@@ -9,7 +9,7 @@ interface ITitleProps extends DetailedHTMLProps<HTMLAttributes<HTMLHeadingElemen
 	type: "H1" | "H2" | "H3";
 }
 
-function Title({ children, className, type, ...props }: ITitleProps): JSX.Element {
+const Title = ({ children, className, type, ...props }: ITitleProps): JSX.Element => {
 	if (type === "H1") {
 		return (
 			<h1

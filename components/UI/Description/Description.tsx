@@ -9,7 +9,7 @@ interface IDescriptionProps extends DetailedHTMLProps<HTMLAttributes<HTMLParagra
 	type?: "SMALL" | "MIDDLE" | "BIG";
 }
 
-function Description({ children, className, type, ...props }: IDescriptionProps) {
+const Description = ({ children, className, type, ...props }: IDescriptionProps): JSX.Element => {
 	return (
 		<p
 			className={cn(classes.description, className, {

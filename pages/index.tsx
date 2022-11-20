@@ -4,7 +4,7 @@ import MainLayout from "../components/Layouts/MainLayout/MainLayout";
 import Technology from "../components/Technology/Technology";
 import Welcome from "../components/Welcome/Welcome";
 
-function Home() {
+const HomePage = (): JSX.Element => {
 	return (
 		<MainLayout>
 			<article>
@@ -15,6 +15,6 @@ function Home() {
 			</article>
 		</MainLayout>
 	);
-}
+};
 
-export default Home;
+export default HomePage;

@@ -11,7 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Button from "../../components/UI/Button/Button";
 
-function ProjectsPage() {
+const ProjectsPage = (): JSX.Element => {
 	return (
 		<MainLayout title="Проекты Алексея Яковлева">
 			<article className={cn(classes.wrapper, "container")}>
@@ -63,7 +63,7 @@ function ProjectsPage() {
 											</ul>
 										</div>
 										<Button>
-											<Link href={`/projects/${project.name}`}>Узнать больше</Link>
+											<Link href={"/projects/2"}>Узнать больше</Link>
 										</Button>
 									</footer>
 								</li>
