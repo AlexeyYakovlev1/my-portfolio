@@ -9,16 +9,6 @@ import PostgIcon from "./public/assets/images/technology/postgresql.svg";
 import MongoIcon from "./public/assets/images/technology/mongodb.svg";
 import GitIcon from "./public/assets/images/technology/git.svg";
 
-import ShareListAuthIcon from "./public/assets/images/projects/share-life/auth.jpg";
-import ShareListCreatePostIcon from "./public/assets/images/projects/share-life/createPost.jpg";
-import ShareListViewPostIcon from "./public/assets/images/projects/share-life/viewPost.jpg";
-import ShareLifePostIcon from "./public/assets/images/projects/share-life/post.jpg";
-import ShareLifeChangePost from "./public/assets/images/projects/share-life/change.jpg";
-import ShareLifeProfileIcon from "./public/assets/images/projects/share-life/profile.jpg";
-import ShareLifeSettingsIcon from "./public/assets/images/projects/share-life/settings.jpg";
-import ShareLifeAdminIcon from "./public/assets/images/projects/share-life/admin.jpg";
-import ShareLifeAdminChangeIcon from "./public/assets/images/projects/share-life/adminChange.jpg";
-
 import TelegramIcon from "./public/assets/images/socialNetworks/telegram.svg";
 import GmailIcon from "./public/assets/images/socialNetworks/gmail.svg";
 import VkIcon from "./public/assets/images/socialNetworks/vk.svg";

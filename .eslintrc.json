@@ -35,6 +35,8 @@
 		"semi": [
 			"error",
 			"always"
-		]
+		],
+		"no-undef": "off",
+		"@typescript-eslint/no-var-requires": "off"
     }
 }

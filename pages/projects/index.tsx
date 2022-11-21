@@ -6,13 +6,17 @@ import cn from "classnames";
 import Description from "../../components/UI/Description/Description";
 import Title from "../../components/UI/Title/Title";
 import Filters from "../../components/Filters/Filters";
-import { IProject, projects } from "../../data";
+import { IProject } from "../../data";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "../../components/UI/Button/Button";
 import React from "react";
 
-const ProjectsPage = (): JSX.Element => {
+interface IProjectsPageProps {
+	projects: Array<IProject> | null;
+}
+
+const ProjectsPage = ({ projects }: IProjectsPageProps): JSX.Element => {
 	const [openFilts, setOpenFilts] = React.useState<boolean>(false);
 
 	return (
@@ -35,7 +39,7 @@ const ProjectsPage = (): JSX.Element => {
 				</header>
 				<section className={classes.projects}>
 					<ul className={classes.list}>
-						{projects.map((project: IProject) => {
+						{(projects && projects.length) ? projects.map((project: IProject) => {
 							return (
 								<li key={project.link} className={classes.listItem}>
 									<header className={classes.listItemHeader}>
@@ -79,7 +83,7 @@ const ProjectsPage = (): JSX.Element => {
 									</footer>
 								</li>
 							);
-						})}
+						}) : <Title type="H3">Проекты в разработке...</Title>}
 					</ul>
 					<Filters className={classes.filters} />
 				</section>
@@ -89,3 +93,16 @@ const ProjectsPage = (): JSX.Element => {
 };
 
 export default ProjectsPage;
+
+ProjectsPage.getInitialProps = async ({ req }: any) => {
+	if (!req) {
+		return { projects: null };
+	}
+
+	const response = await fetch("http://localhost:3000/api/projects/getAll");
+	const projects = await response.json();
+
+	return {
+		projects
+	};
+};

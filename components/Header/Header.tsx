@@ -21,10 +21,6 @@ const Header = (): JSX.Element => {
 		{
 			text: "Проекты",
 			link: "/projects"
-		},
-		{
-			text: "Связаться со мной",
-			link: "/contact"
 		}
 	];
 
