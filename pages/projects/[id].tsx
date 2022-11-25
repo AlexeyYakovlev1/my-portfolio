@@ -1,7 +1,7 @@
 "use client";
 
 import MainLayout from "../../components/Layouts/MainLayout/MainLayout";
-import { IProject } from "../../models/project/project.module";
+import { IProject } from "../../models/project/project.model";
 import classes from "./Project.module.sass";
 import cn from "classnames";
 import Image from "next/image";
