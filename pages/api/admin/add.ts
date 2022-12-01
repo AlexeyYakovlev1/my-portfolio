@@ -3,6 +3,8 @@ import { NextApiRequest, NextApiResponse } from "next";
 import db from "../../../db/index";
 import initMiddleware from "../../../middlewares/init.middleware";
 import validateMiddleware from "../../../middlewares/validate.middleware";
+import { hash } from "bcrypt";
+import rolesMiddleware from "../../../middlewares/roles.middleware";
 
 db.sequelize.sync();
 
@@ -16,12 +18,15 @@ const validateBody = initMiddleware(
 	], validationResult)
 );
 
+const accessForAdmin = initMiddleware(rolesMiddleware(["ADMIN"]));
+
 export default async (req: NextApiRequest, res: NextApiResponse) => {
 	if (req.method !== "POST") {
 		return res.status(400).json({ success: false, message: "Только POST запрос" });
 	}
 
 	await validateBody(req, res);
+	await accessForAdmin(req, res);
 
 	const errors = validationResult(req);
 
@@ -39,7 +44,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 			return res.status(400).json({ success: false, message: "Администратор по такой почте уже существует" });
 		}
 
-		const newAdmin = await Admin.create({ name, email, password });
+		const hashPassword = await hash(password, 8);
+		const newAdmin = await Admin.create({ name, email, password: hashPassword });
 
 		return res.status(201).json({ success: true, message: "Администратор добавлен", admin: newAdmin });
 	} catch (error: any) {

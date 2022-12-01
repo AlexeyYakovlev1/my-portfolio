@@ -15,8 +15,14 @@ const MainLayout = ({ children, title = "Портфолио - Алексей Я�
 	return (
 		<React.Fragment>
 			<Head>
-				<meta name="keywords" content="portfolio, programming, javascript, description, about" />
-				<meta name="description" content="portfolio about Alexey Yakovlev and his projects" />
+				<meta
+					name="keywords"
+					content="portfolio, programming, javascript, description, about"
+				/>
+				<meta
+					name="description"
+					content="portfolio about Alexey Yakovlev and his projects"
+				/>
 				<meta charSet="UTF-8" />
 				<title>{title}</title>
 			</Head>
@@ -27,6 +33,6 @@ const MainLayout = ({ children, title = "Портфолио - Алексей Я�
 			</div>
 		</React.Fragment>
 	);
-}
+};
 
 export default MainLayout;

@@ -16,6 +16,8 @@ interface IProjectsPageProps {
 	projects: Array<IProject> | null;
 }
 
+const { API_URL } = process.env;
+
 const ProjectsPage = ({ projects }: IProjectsPageProps): JSX.Element => {
 	const [openFilts, setOpenFilts] = React.useState<boolean>(false);
 
@@ -95,14 +97,10 @@ const ProjectsPage = ({ projects }: IProjectsPageProps): JSX.Element => {
 export default ProjectsPage;
 
 ProjectsPage.getInitialProps = async ({ req }: any) => {
-	if (!req) {
-		return { projects: null };
-	}
+	if (!req) return { projects: null };
 
-	const response = await fetch("http://localhost:3000/api/projects/getAll");
+	const response = await fetch("/api/projects/getAll");
 	const projects = await response.json();
 
-	return {
-		projects
-	};
+	return { projects };
 };

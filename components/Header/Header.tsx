@@ -5,6 +5,8 @@ import React from "react";
 import classes from "./Header.module.sass";
 import cn from "classnames";
 import { usePathname } from "next/navigation";
+import { useSelector } from "react-redux";
+import { IState } from "../../models/redux/state.models";
 
 interface IMenu {
 	text: string;
@@ -13,6 +15,7 @@ interface IMenu {
 }
 
 const Header = (): JSX.Element => {
+	const { auth } = useSelector((state: IState) => state.admin);
 	const menu: Array<IMenu> = [
 		{
 			text: "Главная",
@@ -42,6 +45,13 @@ const Header = (): JSX.Element => {
 							</li>
 						);
 					})}
+					{auth && <li className={cn({
+						[classes.active]: "/admin/workplace" === path
+					})}>
+						<Link href="/admin/workplace">
+							Администратор
+						</Link>
+					</li>}
 				</ul>
 			</nav>
 		</header>
