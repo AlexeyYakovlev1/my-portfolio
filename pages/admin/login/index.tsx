@@ -9,6 +9,9 @@ import { IAdmin } from "../../../models/admin/admin.model";
 import classes from "./Login.module.sass";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { useDispatch } from "react-redux";
+import { setAlert } from "../../../redux/actions/alert.actions";
+import { useRouter } from "next/router";
 
 const Admin = (): JSX.Element => {
 	const [adminInfo, setAdminInfo] = React.useState<IAdmin>({
@@ -17,18 +20,32 @@ const Admin = (): JSX.Element => {
 		password: "",
 		id: -1
 	});
+	const dispatch = useDispatch();
+	const router = useRouter();
 
 	const loginSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
 		axios.post("/api/admin/login", adminInfo)
 			.then((response) => {
-				const { success, token } = response.data;
+				const { success, token, error, message } = response.data;
+
+				if (!success) {
+					dispatch(setAlert({
+						type: "ERROR",
+						text: message || error
+					}));
+					return;
+				}
 
 				Cookies.set("token", token);
+				router.push("/admin/workplace");
 			})
 			.catch((error) => {
-				console.error(error);
+				dispatch(setAlert({
+					type: "ERROR",
+					text: error
+				}));
 			});
 	};
 

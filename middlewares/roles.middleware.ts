@@ -17,6 +17,10 @@ export default (roles: Array<string>) => {
 			const token = req.headers.authorization?.split(" ")[1];
 
 			if (!token) {
+				if (req.query.forget === "true") {
+					return res.status(200).json({ success: false, message: "Нет доступа", forget: true });
+				}
+
 				return res.status(200).json({ success: false, message: "Нет доступа" });
 			}
 

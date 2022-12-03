@@ -2,8 +2,11 @@
 
 import Head from "next/head";
 import React from "react";
+import { useSelector } from "react-redux";
+import { IState } from "../../../models/redux/state.models";
 import Footer from "../../Footer/Footer";
 import Header from "../../Header/Header";
+import Alert from "../../UI/Alert/Alert";
 import classes from "./MainLayout.module.sass";
 
 interface IMainLayoutProps {
@@ -12,6 +15,8 @@ interface IMainLayoutProps {
 }
 
 const MainLayout = ({ children, title = "Портфолио - Алексей Яковлев" }: IMainLayoutProps): JSX.Element => {
+	const { text } = useSelector((state: IState) => state.alert);
+
 	return (
 		<React.Fragment>
 			<Head>
@@ -27,6 +32,7 @@ const MainLayout = ({ children, title = "Портфолио - Алексей Я�
 				<title>{title}</title>
 			</Head>
 			<div className={classes.wrapper}>
+				{text && <Alert />}
 				<Header />
 				<main className={classes.body}>{children}</main>
 				<Footer />

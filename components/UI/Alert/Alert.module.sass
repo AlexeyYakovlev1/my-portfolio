@@ -1,0 +1,34 @@
+@import "../../../styles/_vars"
+
+.wrapper
+	position: fixed
+	top: 10px
+	right: 10px
+	z-index: 999
+	padding: 20px 10px
+	border: 2px solid transparent
+	border-radius: 4px
+	display: flex
+	justify-content: space-between
+	align-items: center
+	max-width: 400px
+	gap: 50px
+
+.close
+	cursor: pointer
+	font-size: 11px
+
+.success
+	background-color: $colorAlertSuccess
+	border-color: $colorAlertSuccessText
+	color: $colorAlertSuccessText
+
+.error
+	background-color: $colorAlertError
+	border-color: $colorAlertErrorText
+	color: $colorAlertErrorText
+
+.warning
+	background-color: $colorAlertWarning
+	border-color: $colorAlertWarningText
+	color: $colorAlertWarningText

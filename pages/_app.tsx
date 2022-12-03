@@ -1,21 +1,20 @@
 import "../styles/_global.sass";
 import type { AppProps } from "next/app";
 import React from "react";
-import AlertContext from "../context/alert.context";
 import Cookies from "js-cookie";
 import { Provider } from "react-redux";
 import { wrapper, store } from "../redux/store";
 import { useDispatch } from "react-redux";
 import { setAdmin } from "../redux/actions/admin.actions";
+import { setAlert } from "../redux/actions/alert.actions";
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => {
-	const [text, setText] = React.useState<string>("");
 	const dispatch = useDispatch();
 
 	// При запуске - проверка на администратора
 	React.useEffect(() => {
 		const checkAdmin = async () => {
-			const response = await fetch("/api/admin/check", {
+			const response = await fetch("/api/admin/check?forget=true", {
 				method: "GET",
 				headers: {
 					"Authorization": `Bearer ${Cookies.get("token") || ""}`
@@ -23,15 +22,22 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 			});
 
 			const data = await response.json();
-			const { success, token, admin, error, message } = data;
+			const { success, token, admin, error, message, forget } = data;
 
 			if (!success) {
-				alert(message || error);
+				if (!forget) {
+					dispatch(setAlert({
+						type: "ERROR",
+						text: message || error
+					}));
+				}
 				return;
 			}
 
-			Cookies.set("token", token);
-			dispatch(setAdmin(admin));
+			if (success && !forget) {
+				Cookies.set("token", token);
+				dispatch(setAdmin(admin));
+			}
 		};
 
 		checkAdmin();
@@ -39,9 +45,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 
 	return (
 		<Provider store={store}>
-			<AlertContext.Provider value={{ text, setText }}>
-				<Component {...pageProps} />
-			</AlertContext.Provider>
+			<Component {...pageProps} />
 		</Provider>
 	);
 };
