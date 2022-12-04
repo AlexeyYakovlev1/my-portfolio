@@ -18,7 +18,8 @@ const Admin = (): JSX.Element => {
 		name: "",
 		email: "",
 		password: "",
-		id: -1
+		id: -1,
+		roles: []
 	});
 	const dispatch = useDispatch();
 	const router = useRouter();

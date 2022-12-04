@@ -18,7 +18,8 @@ const adminReducer = (state = initialState, action: IActionAdmin) => {
 	switch (action.type) {
 		case SET_ADMIN:
 			return {
-				...action.payload,
+				roles: ["ADMIN"],
+				admin: action.payload,
 				auth: true
 			};
 		default:
